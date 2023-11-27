@@ -1,9 +1,11 @@
 :root {
-  --background-colour: #e5e5e5;
+  --background-colour: #091a01;
   --primary-colour: #fca311;
   --secondary-colour: #14213d;
   --tertiary-colour: #ffffff;
   --action-colour: #000000;
+  --text-colour: #0c0124;
+  --alt-text-colour: #ffffff;
 }
 
 

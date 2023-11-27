@@ -1,5 +1,6 @@
 <template lang="">
-  <div>
+  <div class="nav-title">
+    <h1>Nomadic Media Studios</h1>
     <nav id="nav">
       <router-link to="/" class="navTag">Home</router-link>
       <router-link to="/about" class="navTag">About</router-link>
@@ -32,22 +33,34 @@ export default {
   methods: {
     handleNavClick() {
       this.navbarOpen = !this.navbarOpen;
-      console.log("clicked");
     },
   },
 };
 </script>
 <style scoped lang="scss">
-#nav {
+.nav-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  // background-color: var(--background-colour);
+  margin: 0rem 1rem;
+  h1 {
+    font-size: x-large;
+    color: var(--text-colour);
+  }
+  #nav {
   display: flex;
   padding: 1rem;
   justify-content: flex-end;
   .navTag {
     text-decoration: none;
-    color: var(--action-colour);
+    color: var(--text-colour);
     padding: 0rem 1rem;
   }
 }
+}
+
 
 .nav-collapse {
   display: none;
@@ -55,7 +68,7 @@ export default {
 
 #nav .active-link {
   font-weight: bold;
-  border-bottom: 2px solid var(--action-colour);
+  border-bottom: 2px solid var(--text-colour);
 }
 
 @media only screen and (orientation: portrait) {
