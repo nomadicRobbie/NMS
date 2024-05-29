@@ -1,32 +1,27 @@
-<template lang="">
-  <div class="nav-title">
-    <h1>Nomadic Media Studios</h1>
-    <nav id="nav">
-      <router-link to="/" class="navTag">Home</router-link>
-      <router-link to="/about" class="navTag">About</router-link>
-      <router-link to="/hireUs" class="navTag">Hire Us</router-link>
-      <router-link to="/shop" class="navTag">Shop</router-link>
+<template>
+  <div class="site-nav" @click="handleNavClick">
+    <p>MENU</p>
+    <nav class="navigation" v-show="navbarOpen" @click.stop.prevent="handleNavClick">
+      <transition-group name="drop" tag="div" class="navbar">
+        <router-link v-for="(item, index) in navItems" :key="item.name" :to="item.route" class="navTag" :style="{ transitionDelay: `${index * 0.25}s` }" v-show="navbarOpen">
+          {{ item.name }}
+        </router-link>
+      </transition-group>
     </nav>
   </div>
-
-  <div class="nav-collapse" @click="handleNavClick">
-    <p>=</p>
-    <transition mode="out-in" name="slide">
-      <nav :class="navbarOpen ? 'show-nav' : 'hide-nav'">
-        <router-link to="/" class="navTag">Home</router-link>
-        <router-link to="/about" class="navTag">About</router-link>
-        <router-link to="/hireUs" class="navTag">Hire Us</router-link>
-        <router-link to="/shop" class="navTag">Shop</router-link>
-      </nav>
-    </transition>
-  </div>
 </template>
+
 <script>
 export default {
   name: "NavBar",
   data() {
     return {
       navbarOpen: false,
+      navItems: [
+        { name: "Home", route: "/" },
+        { name: "About", route: "/about" },
+        { name: "Contact", route: "/hireUs" },
+      ],
     };
   },
 
@@ -37,91 +32,59 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
-.nav-title {
+
+<style scoped>
+.site-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  transition: all 500ms ease-in-out;
+  margin: 0;
+  background: var(--background-fade);
+  height: 50px;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  // background-color: var(--background-colour);
-  margin: 0rem 1rem;
-  h1 {
-    font-size: x-large;
-    color: var(--text-colour);
-  }
-  #nav {
+  padding: 0.5rem;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+p {
+  color: var(--secondary-colour);
+  margin: 0 1rem;
+}
+.navbar {
+  padding: 0;
+  margin: 0;
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  transition: all 500ms ease-in-out;
+}
+.navTag {
+  padding: 10px;
+  text-decoration: none;
+  transition: all 500ms ease-in-out;
   padding: 1rem;
-  justify-content: flex-end;
-  .navTag {
-    text-decoration: none;
-    color: var(--text-colour);
-    padding: 0rem 1rem;
-  }
-}
 }
 
-
-.nav-collapse {
-  display: none;
+.drop-enter-active,
+.drop-leave-active {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
-
-#nav .active-link {
-  font-weight: bold;
-  border-bottom: 2px solid var(--text-colour);
+.drop-enter-from,
+.drop-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
 }
-
-@media only screen and (orientation: portrait) {
-  #nav {
-    display: none;
-  }
-
-  .hide-nav {
-    display: none;
-  }
-
-  .nav-collapse {
-    .v-enter-active,
-    .v-leave-active {
-      transition: opacity 3s ease-in-out;
-    }
-    .v-enter-from,
-    .v-leave-to {
-      opacity: 0;
-    }
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 5rem;
-    right: 0.5rem;
-    top: 0rem;
-    z-index: 10;
-
-    p {
-      font-size: xx-large;
-      position: absolute;
-      padding-right: 1rem;
-    }
-    .show-nav {
-      position: relative;
-      width: 80%;
-      right: 2rem;
-      top: 8rem;
-      display: flex;
-      flex-direction: column;
-      background-color: var(--background-colour);
-      box-shadow: 0px 5px 10px var(--action-colour);
-      border-radius: 10px;
-
-      .navTag {
-        padding: 1rem;
-        text-decoration: none;
-        right: 5rem;
-        color: var(--action-colour);
-        font-size: large;
-      }
-    }
-  }
+.drop-enter-to,
+.drop-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+.active-link {
+  text-decoration: underline;
 }
 </style>
