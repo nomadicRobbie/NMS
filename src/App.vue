@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style >
 .container,
 body {
   padding: 0;
@@ -28,36 +28,45 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin: 0;
+  scroll-behavior: smooth;
+}
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 h1 {
   font-size: 3rem;
-  /* background-clip: text;
-  -webkit-background-clip: text; 
-  color: transparent;
-  -webkit-text-stroke: 0.5px var(--secondary-colour);  */
+  color: var(--text-colour);
 }
 h2 {
   font-size: 2rem;
-  color: var(--secondary-colour);
+  color: var(--text-colour);
   font-family: Roboto_Condensed, sans-serif;
-  font-weight: lighter;
+  font-weight: normal;
 }
 h3 {
   font-size: 1.75rem;
   color: var(--secondary-colour);
   font-family: Roboto_Condensed, sans-serif;
   font-weight: lighter;
+  margin: 0.5rem;
 }
 p {
   font-size: 1.5rem;
-  color: var(--secondary-colour);
+  color: var(--text-colour);
   font-weight: lighter;
+  margin: 0.5rem 0;
 }
 a {
   font-size: 1.25rem;
   color: var(--secondary-colour);
+  text-decoration: none;
 }
 </style>

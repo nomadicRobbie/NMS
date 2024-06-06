@@ -8,20 +8,20 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/about",
-    name: "about",
-    component: () => import("@/views/AboutView.vue"),
-  },
-  {
-    path: "/hireUs",
-    name: "hireUs",
+    path: "/contact",
+    name: "contact",
     component: () => import("@/views/HireUsView.vue"),
   },
-  {
-    path: "/shop",
-    name: "shop",
-    component: () => import("@/views/ShopView.vue"),
-  },
+  // {
+  //   path: "/hireUs",
+  //   name: "hireUs",
+  //   component: () => import("@/views/HireUsView.vue"),
+  // },
+  // {
+  //   path: "/shop",
+  //   name: "shop",
+  //   component: () => import("@/views/ShopView.vue"),
+  // },
 ];
 
 const router = createRouter({
