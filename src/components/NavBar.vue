@@ -62,7 +62,7 @@ export default {
   transition: all 500ms ease-in-out;
   margin: 0;
   /* background: var(--nav-fade); */
-  /* height: 50px; */
+  height: 8rem;
   width: 100%;
   display: flex;
   align-items: center;
@@ -79,6 +79,7 @@ export default {
 
 p,
 a {
+  all: unset;
   color: var(--text-colour);
   margin: 1rem 1rem;
   font-size: 1.5rem;

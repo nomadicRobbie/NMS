@@ -1,29 +1,23 @@
 <template>
-  <section class="right-panel">
-    <!-- The 'scale' class will trigger the animation -->
-    <div :class="getDotClass('section-1')" class="dot"></div>
-    <div :class="getDotClass('section-2')" class="dot"></div>
-    <div :class="getDotClass('section-3')" class="dot"></div>
-    <div :class="getDotClass('section-4')" class="dot"></div>
-    <div :class="getDotClass('section-5')" class="dot"></div>
-    <!-- ... rest of your template ... -->
+  <SocialIcons />
+
+  <ScrollItem @section-change="handleSectionChange" />
+
+  <ScrollCheck />
+
+  <section class="hero0 scroll" v-bind:class="{ active: activeSection === 'section-1' }" id="section-1">
+    <div></div>
   </section>
-  <section class="left-panel">
-    <a href="https://www.instagram.com" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" size="2x" class="icon" /></a>
-    <a href="https://www.facebook.com" target="_blank"><font-awesome-icon :icon="['fab', 'facebook']" size="2x" class="icon" /> </a>
-  </section>
-  <section class="landing-container scroll" v-bind:class="{ active: activeSection === 'section-1' }" id="section-1">
-    <div class="overlay"></div>
-  </section>
-  <section class="products scroll" v-bind:class="{ active: activeSection === 'section-2' }" id="section-2">
-    <div class="scroll-scale">
-      <div class="subtitle">
-        <p>web design</p>
-        <p>task automation</p>
-        <p>content creation</p>
-        <p>graphic design</p>
+
+  <section class="row-container scroll" v-bind:class="{ active: activeSection === 'section-2' }" id="section-2">
+    <div class="">
+      <div class="subtitle scroll-scale" id="enlarge">
+        <h1>web design</h1>
+        <h1>task automation</h1>
+        <h1>content creation</h1>
+        <h1>graphic design</h1>
       </div>
-      <div class="subtitle">
+      <div class="subtitle scroll-scale">
         <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
         <svg
           width="100%"
@@ -170,86 +164,159 @@
     </div>
   </section>
 
-  <section class="hero">
-    <div class="overlay"></div>
+  <section class="hero1">
+    <div></div>
   </section>
-  <section class="products scroll" id="section-3" v-bind:class="{ active: activeSection === 'section-3' }">
+
+  <section class="row-container scroll" id="section-3" v-bind:class="{ active: activeSection === 'section-3' }">
     <div class="scroll-scale">
-      <h2>Nomadic Media Studios</h2>
-      <p>We are a team of creatives who are excited about unique ideas and helping businesses create a unique identity and craft top-notch brands.</p>
-      <p>We take the time to understand your business and create a strategy to achieve your goals.</p>
+      <h2 class="scroll-scale">Our Mission</h2>
+      <h4 class="scroll-scale" id="enlarge">
+        At NMS our mission is to elevate small businesses, artisans and entrepreneurs by creating innovative solutions to help with managing online assets. We understand that the requirements to keep
+        up with the latest trends or digital demands can be overwhelming for small businesses and artisans.
+      </h4>
+      <h4 class="scroll-scale" id="enlarge">
+        Our dedicated team provides personalized support and practical tools tailored to meet the unique needs of each client. By offering accessible resources and guidance, we ensure that our clients
+        can navigate the digital landscape with confidence and ease.
+      </h4>
+      <h4 class="scroll-scale" id="enlarge">
+        We believe in the potential of every entrepreneur and craftsman, and our goal is to make it easier for them to focus on their passion while we take care of the digital complexities. Together,
+        we build a brighter, more profitable future.
+      </h4>
     </div>
   </section>
 
   <section class="hero2">
-    <div class="overlay"></div>
+    <div></div>
   </section>
-  <section class="products scroll" id="section-4" v-bind:class="{ active: activeSection === 'section-4' }">
-    <section class="flip-container scroll-scale">
-      <div class="flipper">
-        <div class="front">
-          <h3>Web Design</h3>
-          <img src="../../public/images/img1.jpg" alt="written Web design" />
-        </div>
-        <div class="back">
-          <h4>Unique website</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea soluta ipsa doloremque quaerat dignissimos, placeat tempore possimus rerum ut exercitationem fugiat nisi illum quis totam
-            asperiores veritatis delectus minima quasi?
-          </p>
-        </div>
-      </div>
+
+  <section class="column-container scroll" id="section-4" v-bind:class="{ active: activeSection === 'section-4' }">
+    <section class="scroll-scale">
+      <h2>Our Services</h2>
+      <h4>
+        We know that a standout brand starts with getting to the heart of what makes your business unique. Our journey together kicks off with a deep dive into your goals, values, and style
+        preferences. By working closely with you, we make sure every part of your brand reflects your vision perfectly. So, let's create something amazing together!
+      </h4>
     </section>
-    <section class="flip-container scroll-scale">
-      <div class="flipper">
-        <div class="front">
-          <h3>Task Automation</h3>
-          <img src="../../public/images/code.jpg" alt="written Web design" />
+    <section class="row-container">
+      <section class="flip-container scroll-scale">
+        <div class="flipper">
+          <div class="front">
+            <h3>Web Design</h3>
+            <img src="../../public/images/img1.jpg" alt="written Web design" />
+          </div>
+          <div class="back">
+            <h4>Unique website</h4>
+            <p>
+              Every website is fully responsive, optimized for performance, and easy to manage. Whether you need a sleek portfolio, a dynamic e-commerce platform, or an interactive business site, we
+              bring your vision to life with precision and creativity. Partner with us to elevate your online presence and stand out in the digital landscape.
+            </p>
+          </div>
         </div>
-        <div class="back">
-          <h4>Automate the mundane</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea soluta ipsa doloremque quaerat dignissimos, placeat tempore possimus rerum ut exercitationem fugiat nisi illum quis totam
-            asperiores veritatis delectus minima quasi?
-          </p>
+      </section>
+      <section class="flip-container scroll-scale">
+        <div class="flipper">
+          <div class="front">
+            <h3>Task Automation</h3>
+            <img src="../../public/images/code.jpg" alt="written Web design" />
+          </div>
+          <div class="back">
+            <h4>Automate the mundane</h4>
+            <p>
+              Every automation solution we build is designed to be efficient, reliable, and user-friendly. Whether you need to streamline your workflows, automate repetitive tasks, or integrate
+              multiple systems seamlessly, we bring your vision to life with precision and creativity. Partner with us to enhance your productivity and stand out in your industry with cutting-edge
+              automation. Let's transform the way you work and achieve your business goals more effectively.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="flip-container scroll-scale">
-      <div class="flipper">
-        <div class="front">
-          <h3>Content creation</h3>
-          <img src="../../public/images/img3.jpg" alt="written Web design" />
+      </section>
+      <section class="flip-container scroll-scale">
+        <div class="flipper">
+          <div class="front">
+            <h3>Content creation</h3>
+            <img src="../../public/images/img3.jpg" alt="written Web design" />
+          </div>
+          <div class="back">
+            <h4>Captivating content</h4>
+            <p>
+              Every piece of content we create is crafted to be engaging, impactful, and true to your brand's voice. Whether you need compelling blog posts, eye-catching social media updates, or
+              persuasive marketing copy, we bring your vision to life with precision and creativity. Partner with us to enhance your content strategy and captivate your audience. Let’s tell your story
+              in a way that stands out and drives results.
+            </p>
+          </div>
         </div>
-        <div class="back">
-          <h4>Creating captivating content</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea soluta ipsa doloremque quaerat dignissimos, placeat tempore possimus rerum ut exercitationem fugiat nisi illum quis totam
-            asperiores veritatis delectus minima quasi?
-          </p>
+      </section>
+      <section class="flip-container scroll-scale">
+        <div class="flipper">
+          <div class="front">
+            <h3>Graphic Design</h3>
+            <img src="../../public/images/img2.jpg" alt="written Web design" />
+          </div>
+          <div class="back">
+            <h4>Graphics to match you brand</h4>
+            <p>
+              Every graphic design project we undertake is tailored to be visually stunning, brand-aligned, and memorable. Whether you need eye-catching logos, captivating marketing materials, or
+              sleek digital assets, we bring your vision to life with precision and creativity. Partner with us to elevate your brand’s visual identity and stand out in a crowded market. Let's create
+              designs that leave a lasting impression.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="flip-container scroll-scale">
-      <div class="flipper">
-        <div class="front">
-          <h3>Graphic Design</h3>
-          <img src="../../public/images/img2.jpg" alt="written Web design" />
-        </div>
-        <div class="back">
-          <h4>Graphics to match you brand</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea soluta ipsa doloremque quaerat dignissimos, placeat tempore possimus rerum ut exercitationem fugiat nisi illum quis totam
-            asperiores veritatis delectus minima quasi?
-          </p>
-        </div>
-      </div>
+      </section>
     </section>
   </section>
-  <footer>
-    <div class="overlay"></div>
-  </footer>
-  <section class="products scroll" id="section-5" v-bind:class="{ active: activeSection === 'section-5' }">
+
+  <section class="hero3">
+    <div></div>
+  </section>
+
+  <section class="column-container scroll" id="section-5" v-bind:class="{ active: activeSection === 'section-5' }">
+    <section class="scroll-scale">
+      <h2>Our Team</h2>
+      <h4>
+        We're a dynamic pair of creative pros who wear many hats. From mastering code to crafting designs to capturing stunning photos, we bring a blend of skills and expertise to every project. We're
+        all about making your vision a reality and having a good time while doing it. Let's create something incredible together!
+      </h4>
+    </section>
+    <section class="row-container">
+      <section class="flip-container scroll-scale">
+        <div class="flipper">
+          <div class="front">
+            <h4>Robbie Jameson</h4>
+            <img src="../../public/images/robbie.png" alt="Robbie Jameson" id="robbie" />
+          </div>
+          <div class="back">
+            <p>
+              Robbie is a self-taught software developer and design enthusiast with a rich background in hospitality. Robbie leverages his experience in successfully hospitality ventures to bring a
+              unique perspective to building a brand and a business. He specializes in creating intuitive solutions that optimize business operations and enhance customer experiences. Whether you're
+              aiming to streamline processes or strengthen your online presence, Robbie is committed to delivering innovative solutions that drive growth and maximize profitability.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="flip-container scroll-scale">
+        <div class="flipper">
+          <div class="front">
+            <h4>AJ Carrick</h4>
+            <img src="../../public/images/aj-portrait.png" alt="AJ Carrick" id="aj" />
+          </div>
+          <div class="back">
+            <p>
+              Meet AJ, a talented photographer with a keen eye for detail and a passion for creating captivating visuals. With 18 years of experience in tourism, AJ has captured breathtaking
+              landscapes worldwide. Throughout AJ's journey, from iconic landmarks to remote destinations, AJ has mastered the art of visual storytelling. AJ specializes in crafting compelling visual
+              identities that resonate deeply with their target audience. Whether you're shaping a distinctive brand image or refining your visual storytelling, AJ's expertise ensures your vision
+              stands out.
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <section class="hero4">
+    <div></div>
+  </section>
+
+  <section class="row-container scroll" id="section-6" v-bind:class="{ active: activeSection === 'section-6' }">
     <div class="scroll-scale">
       <h2>Get in touch</h2>
       <p>Discover how we can help you grow your business.</p>
@@ -259,68 +326,31 @@
 </template>
 
 <script>
+import ScrollCheck from "@/components/ScrollCheck.vue";
+import SocialIcons from "@/components/SocialIcons.vue";
+import ScrollItem from "@/components/ScrollItem.vue";
 export default {
   data() {
     return {
-      activeSection: "section-1",
+      activeSection: "",
     };
   },
-  methods: {
-    getDotClass(section) {
-      return this.activeSection === section ? "scale" : "";
-    },
+  components: {
+    ScrollCheck,
+    SocialIcons,
+    ScrollItem,
   },
-  mounted() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const id = entry.target.id;
-          if (entry.isIntersecting) {
-            this.activeSection = id;
-          }
-        });
-      },
-      { threshold: 0.7 }
-    );
-
-    // Observe multiple sections
-    const sections = document.querySelectorAll(".scroll");
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+  methods: {
+    handleSectionChange(sectionId) {
+      this.activeSection = sectionId;
+      console.log(this.activeSection);
+    },
   },
 };
 </script>
 
-<style scoped>
-.right-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  background: none;
-  width: 98%;
-  position: fixed;
-  top: 50%;
-  z-index: 1000;
-}
-.dot {
-  /* Initial size of the dot */
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: var(--text-colour);
-  transition: transform 0.3s ease-in-out;
-  margin: 0.5rem 0;
-  opacity: 0.5;
-}
-
-.scale {
-  /* Scale the dot up by a factor of 2 */
-  transform: scale(1.5);
-  border: 1px solid var(--alt-text-colour);
-}
-.hero {
+<style>
+.hero1 {
   display: flex;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -346,6 +376,19 @@ export default {
   z-index: 0;
   background-image: url("../../public/images/nms-bg6.jpg");
 }
+.hero3 {
+  display: flex;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  scroll-behavior: smooth;
+  z-index: 0;
+  background-image: url("../../public/images/nms-bg2.jpg");
+}
 
 .subtitle {
   display: flex;
@@ -364,6 +407,10 @@ export default {
   }
 }
 
+#enlarge {
+  height: 10rem;
+}
+
 svg {
   width: 30rem;
   height: 30rem;
@@ -372,40 +419,9 @@ svg {
   object-position: center;
 }
 
-.left-panel {
+.hero0 {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 5rem;
-  position: fixed;
-  top: 50%;
-  z-index: 1000;
-  .icon {
-    height: 1.5rem;
-    width: 1.5rem;
-    color: var(--text-colour);
-  }
-  a {
-    all: unset;
-    padding: 0.75rem;
-    transition: all 500ms ease-in-out;
-    margin-left: .5rem;
-  }
-  a:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-  }
-}
-
-.landing-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  width: 100%;
- 
   background-image: url("../../public/images/nms-bg3.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -414,6 +430,7 @@ svg {
   perspective: 1px;
   transform-style: preserve-3d;
   z-index: 0;
+  scroll-behavior: smooth;
 }
 
 .landing {
@@ -423,32 +440,25 @@ svg {
   align-items: center;
   height: 100%;
   width: 100%;
-  background-color: var(--background-fade);
- 
   transform: translateZ(-1px) scale(2);
   z-index: 1000;
 }
-.overlay {
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100%;
-  width: 100%;
-  
-  transform: translateZ(-1px) scale(2);
- 
-  animation: fade-in linear forwards 500ms;
-  z-index: 1000;
-}
-.products {
+
+.row-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   padding: 6rem;
-  
+  flex-wrap: wrap;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem;
 }
 
 img {
@@ -468,18 +478,39 @@ img {
   opacity: 0;
   scale: 0.5;
   perspective: 1000px;
-  animation: fade-in linear forwards 500ms;
-  animation-timeline: view(700px 100px);
+  animation: fade-in 3000ms cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation-timeline: view(1000px 50px);
   animation-range: cover;
   svg {
     margin: auto;
   }
 }
 
+#section-3 {
+  display: flex;
+  flex-direction: column;
+}
+
+#robbie,
+#aj {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+.portrait-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
 @keyframes fade-in {
   to {
     opacity: 1;
-    scale: 1;
+    transform: scale(2);
   }
 }
 
@@ -509,6 +540,10 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  img {
+    object-fit: cover;
+    object-position: top;
+  }
 }
 
 .back {
@@ -519,26 +554,16 @@ img {
   align-items: center;
   transform: rotateY(180deg);
 }
-footer {
+.hero4 {
   background-image: url("../../public/images/nms-bg4.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 90vh;
+  height: 100vh;
   background-attachment: fixed;
   perspective: 1px;
   transform-style: preserve-3d;
-  z-index: 100;
-}
-a {
-  background: var(--secondary-colour);
-  color: var(--alt-text-colour);
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
-  border-radius: 5px;
-  border: none;
-  box-shadow: var(--box-shadow);
-  font-size: 1.25rem;
-  cursor: pointer;
+  z-index: 0;
+  scroll-behavior: smooth;
 }
 </style>
