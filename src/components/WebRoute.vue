@@ -17,7 +17,7 @@
 import SocilaIcons from "@/components/SocialIcons.vue";
 import ScrollCheck from "@/components/ScrollCheck.vue";
 export default {
-    name: "HireUsView",
+    name: "WebRoute",
     data() {
         return {
             data: {
@@ -27,7 +27,7 @@ export default {
             },
         }
 
-    };
+    },
     components: {
         SocilaIcons,
         ScrollCheck,

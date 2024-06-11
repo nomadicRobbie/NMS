@@ -39,7 +39,7 @@ export default {
       navbarOpen: false,
       navItems: [
         { name: "Home", route: "/" },
-        { name: "Contact", route: "/contact" },
+        { name: "Portfolio", route: "/portfolio" },
         // { name: "Contact", route: "/hireUs" },
       ],
     };

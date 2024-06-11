@@ -75,12 +75,8 @@ p {
   font-weight: lighter;
   margin: 0.5rem 0;
 }
-a {
-  font-size: 1.25rem;
-  color: var(--secondary-colour);
-  text-decoration: none;
-}
-button, a {
+button {
+  all: unset;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,19 +85,31 @@ button, a {
   background-color: var(--alt-background-colour);
   color: var(--text-colour);
   padding: 0.5rem 1.25rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
   border-radius: 2.5px;
   cursor: pointer;
   transition: all 500ms ease-in-out;
   box-shadow: var(--box-shadow);
-  width: 100%;
+  /* width: 100%; */
   height: 2rem;
+  float: left;
 }
-a, button:hover {
-  scale: 1.1;
+button:hover {
+  transform: scale(1.1);
 }
-a, button:active {
-  scale: 0.9;
+button:active {
+  transform: scale(0.9);
+}
+a {
+  all: unset;
+  color: var(--text-colour);
+  font-size: 1.5rem;
+  margin: 1rem 1rem;
+  text-decoration: underline;
+}
+a:hover {
+  cursor: pointer;
+  color: var(--secondary-colour);
 }
 input,
 textarea {

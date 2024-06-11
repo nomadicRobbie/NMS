@@ -1,7 +1,7 @@
 <template>
   <SocialIcons />
 
-  <ScrollItem @section-change="handleSectionChange" />
+  <ScrollItem :sections="sectionsArray" />
 
   <ScrollCheck />
 
@@ -203,7 +203,7 @@
         <div class="flipper">
           <div class="front">
             <h3>Web Design</h3>
-            <img src="../../public/images/img1.jpg" alt="written Web design" />
+            <img src="../../public/images/img1.jpg" alt="written Web design" id="round" />
           </div>
           <div class="back">
             <h4>Unique website</h4>
@@ -218,7 +218,7 @@
         <div class="flipper">
           <div class="front">
             <h3>Task Automation</h3>
-            <img src="../../public/images/code.jpg" alt="written Web design" />
+            <img src="../../public/images/code.jpg" alt="written Web design" id="round" />
           </div>
           <div class="back">
             <h4>Automate the mundane</h4>
@@ -234,7 +234,7 @@
         <div class="flipper">
           <div class="front">
             <h3>Content creation</h3>
-            <img src="../../public/images/img3.jpg" alt="written Web design" />
+            <img src="../../public/images/img3.jpg" alt="written Web design" id="round" />
           </div>
           <div class="back">
             <h4>Captivating content</h4>
@@ -250,7 +250,7 @@
         <div class="flipper">
           <div class="front">
             <h3>Graphic Design</h3>
-            <img src="../../public/images/img2.jpg" alt="written Web design" />
+            <img src="../../public/images/img2.jpg" alt="written Web design" id="round" />
           </div>
           <div class="back">
             <h4>Graphics to match you brand</h4>
@@ -282,7 +282,7 @@
         <div class="flipper">
           <div class="front">
             <h4>Robbie Jameson</h4>
-            <img src="../../public/images/robbie.png" alt="Robbie Jameson" id="robbie" />
+            <img src="../../public/images/robbie.png" alt="Robbie Jameson" id="round" />
           </div>
           <div class="back">
             <p>
@@ -297,11 +297,11 @@
         <div class="flipper">
           <div class="front">
             <h4>AJ Carrick</h4>
-            <img src="../../public/images/aj-portrait.png" alt="AJ Carrick" id="aj" />
+            <img src="../../public/images/aj-portrait.png" alt="AJ Carrick" id="round" />
           </div>
           <div class="back">
             <p>
-              Meet AJ, a talented photographer with a keen eye for detail and a passion for creating captivating visuals. With 18 years of experience in tourism, AJ has captured breathtaking
+              AJ is a talented photographer with a keen eye for detail and a passion for creating captivating visuals. With 18 years of experience in tourism, AJ has captured breathtaking
               landscapes worldwide. Throughout AJ's journey, from iconic landmarks to remote destinations, AJ has mastered the art of visual storytelling. AJ specializes in crafting compelling visual
               identities that resonate deeply with their target audience. Whether you're shaping a distinctive brand image or refining your visual storytelling, AJ's expertise ensures your vision
               stands out.
@@ -317,11 +317,7 @@
   </section>
 
   <section class="row-container scroll" id="section-6" v-bind:class="{ active: activeSection === 'section-6' }">
-    <div class="scroll-scale">
-      <h2>Get in touch</h2>
-      <p>Discover how we can help you grow your business.</p>
-      <router-link to="/contact">Reach Out Now</router-link>
-    </div>
+    <AddUser />
   </section>
 </template>
 
@@ -329,23 +325,27 @@
 import ScrollCheck from "@/components/ScrollCheck.vue";
 import SocialIcons from "@/components/SocialIcons.vue";
 import ScrollItem from "@/components/ScrollItem.vue";
+import AddUser from "@/components/AddUser.vue";
 export default {
   data() {
     return {
-      activeSection: "",
+      sectionsArray: [
+        { id: "section-1", title: "Landing" },
+        { id: "section-2", title: "Hero" },
+        { id: "section-3", title: "Our Mission" },
+        { id: "section-4", title: "Our Services" },
+        { id: "section-5", title: "Our Team" },
+        { id: "section-6", title: "Hire Us" },
+      ],
     };
   },
   components: {
     ScrollCheck,
     SocialIcons,
     ScrollItem,
+    AddUser,
   },
-  methods: {
-    handleSectionChange(sectionId) {
-      this.activeSection = sectionId;
-      console.log(this.activeSection);
-    },
-  },
+  
 };
 </script>
 
@@ -491,8 +491,7 @@ img {
   flex-direction: column;
 }
 
-#robbie,
-#aj {
+#round {
   width: 20rem;
   height: 20rem;
   border-radius: 50%;

@@ -1,3 +1,7 @@
+<!-- this componenet requires: class="scroll" and id="section-#" v-bind:class="{ active: activeSection === 'section-#' }" on the parents section. 
+# is the number of the section you want to scroll to.
+Also, an array of the sections in the parent component that are used as props for the child to calculate how many section dots are needed -->
+
 <template>
   <section class="right-panel">
     <div v-for="section in sections" :key="section.id" :class="getDotClass(section.id)" class="dot" @click="scrollToSection(section.id)"></div>
@@ -7,17 +11,15 @@
 <script>
 export default {
   name: "ScrollItem",
+  props: {
+    sections: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
-      activeSection: "section-1",
-      sections: [
-        { id: "section-1", title: "Section 1" },
-        { id: "section-2", title: "Section 2" },
-        { id: "section-3", title: "Section 3" },
-        { id: "section-4", title: "Section 4" },
-        { id: "section-5", title: "Section 5" },
-        { id: "section-6", title: "Section 6" },
-      ],
+      activeSection: "section-1", // Default active section
     };
   },
 
@@ -32,6 +34,7 @@ export default {
         sectionElement.scrollIntoView({ behavior: "smooth" });
       }
     },
+
     saveActiveSection(sectionId) {
       localStorage.setItem("activeSection", sectionId);
     },
@@ -63,6 +66,9 @@ export default {
     sections.forEach((section) => {
       observer.observe(section);
     });
+
+    // Load active section from localStorage on component mount
+    this.loadActiveSection();
   },
 };
 </script>
