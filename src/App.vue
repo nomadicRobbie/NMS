@@ -21,14 +21,13 @@ export default {
 </script>
 
 <style>
-.container,
+/* .container, */
 body {
   padding: 0;
   margin: 0;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  margin: 0;
   scroll-behavior: smooth;
   background: var(--background-fade);
 }
@@ -106,6 +105,10 @@ a {
   font-size: 1.5rem;
   margin: 1rem 1rem;
   text-decoration: underline;
+  text-decoration: none;
+  font-weight: lighter;
+  /* text-align: center; */
+  text-transform: uppercase;
 }
 a:hover {
   cursor: pointer;
@@ -120,5 +123,33 @@ textarea {
   background-color: var(--alt-background-colour);
   width: 100%;
   height: 2rem;
+}
+@media only screen and (orientation: portrait) {
+  a {
+    font-size: medium;
+    margin: 0.5rem;
+    margin-top: 1rem;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  h4 {
+    padding: 0 3rem;
+    font-size: medium;
+    text-align: center;
+  }
+  p {
+    padding: 0 3rem;
+    font-size: smaller;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  h2 {
+    padding: 0.5rem 3rem;
+    font-size: larger;
+    text-align: center;
+  }
+  h3 {
+    text-align: center;
+  }
 }
 </style>

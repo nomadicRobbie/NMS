@@ -2,14 +2,14 @@
   --background-colour: linear-gradient(90deg, rgb(255, 178, 178) 28%, rgb(217, 252, 207) 100%);
   --nav-fade: linear-gradient(135deg, rgba(184, 184, 184, 0.3) 28%, rgba(255, 255, 255, 0.3) 100%);
   --background-fade: linear-gradient(90deg, rgba(255, 255, 255, 0.6) 28%, rgba(254, 233, 175, 0.6) 100%);
-  --primary-colour: #fe5f55;
+  --primary-colour: #00004e25;
   --secondary-colour: #495867;
   --tertiary-colour: #577399;
   --action-colour: #bdd5ea;
   --text-colour: #12191c;
   --alt-text-colour: #f7f7ff;
   --alt-background-colour: #fdfdfd;
-  --box-shadow: 0 0 10px 5px rgba(122, 122, 122, 0.2);
+  --box-shadow: 0 0 15px 4px rgba(122, 122, 122, 0.1);
 }
 
 

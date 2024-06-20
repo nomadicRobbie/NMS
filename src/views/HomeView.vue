@@ -5,19 +5,19 @@
 
   <ScrollCheck />
 
-  <section class="hero0 scroll" v-bind:class="{ active: activeSection === 'section-1' }" id="section-1">
+  <section class="hero0 scroll lazyload" v-bind:class="{ active: activeSection === 'section-1' }" id="section-1">
     <div></div>
   </section>
 
-  <section class="row-container scroll" v-bind:class="{ active: activeSection === 'section-2' }" id="section-2">
-    <div class="">
-      <div class="subtitle scroll-scale" id="enlarge">
-        <h1>web design</h1>
-        <h1>task automation</h1>
-        <h1>content creation</h1>
-        <h1>graphic design</h1>
+  <section class="row-container scroll subtitle" v-bind:class="{ active: activeSection === 'section-2' }" id="section-2">
+    <div class="scroll-scale">
+      <div class="row-container" id="enlarge">
+        <router-link id="softbtn" to="/web-design">web</router-link>
+        <router-link id="softbtn" to="/task-automation">automation</router-link>
+        <router-link id="softbtn" to="/content-creation">creation</router-link>
+        <router-link id="softbtn" to="/graphic-design">graphic</router-link>
       </div>
-      <div class="subtitle scroll-scale">
+      <div class="scroll-scale row-container">
         <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
         <svg
           width="100%"
@@ -164,12 +164,12 @@
     </div>
   </section>
 
-  <section class="hero1">
+  <section class="hero1 lazyload">
     <div></div>
   </section>
 
-  <section class="row-container scroll" id="section-3" v-bind:class="{ active: activeSection === 'section-3' }">
-    <div class="scroll-scale">
+  <section class="scroll" id="section-3" v-bind:class="{ active: activeSection === 'section-3' }">
+    <div class="scroll-scale column-container">
       <h2 class="scroll-scale">Our Mission</h2>
       <h4 class="scroll-scale" id="enlarge">
         At NMS our mission is to elevate small businesses, artisans and entrepreneurs by creating innovative solutions to help with managing online assets. We understand that the requirements to keep
@@ -186,7 +186,7 @@
     </div>
   </section>
 
-  <section class="hero2">
+  <section class="hero2 lazyload">
     <div></div>
   </section>
 
@@ -203,7 +203,7 @@
         <div class="flipper">
           <div class="front">
             <h3>Web Design</h3>
-            <img src="../../public/images/img1.jpg" alt="written Web design" id="round" />
+            <img src="../../public/images/img1.webp" alt="written Web design" id="round" />
           </div>
           <div class="back">
             <h4>Unique website</h4>
@@ -218,7 +218,7 @@
         <div class="flipper">
           <div class="front">
             <h3>Task Automation</h3>
-            <img src="../../public/images/code.jpg" alt="written Web design" id="round" />
+            <img src="../../public/images/code.webp" alt="written Web design" id="round" />
           </div>
           <div class="back">
             <h4>Automate the mundane</h4>
@@ -234,7 +234,7 @@
         <div class="flipper">
           <div class="front">
             <h3>Content creation</h3>
-            <img src="../../public/images/img3.jpg" alt="written Web design" id="round" />
+            <img src="../../public/images/img3.webp" alt="written Web design" id="round" />
           </div>
           <div class="back">
             <h4>Captivating content</h4>
@@ -250,7 +250,7 @@
         <div class="flipper">
           <div class="front">
             <h3>Graphic Design</h3>
-            <img src="../../public/images/img2.jpg" alt="written Web design" id="round" />
+            <img src="../../public/images/img2.webp" alt="written Web design" id="round" />
           </div>
           <div class="back">
             <h4>Graphics to match you brand</h4>
@@ -265,7 +265,7 @@
     </section>
   </section>
 
-  <section class="hero3">
+  <section class="hero3 lazyload">
     <div></div>
   </section>
 
@@ -282,7 +282,7 @@
         <div class="flipper">
           <div class="front">
             <h4>Robbie Jameson</h4>
-            <img src="../../public/images/robbie.png" alt="Robbie Jameson" id="round" />
+            <img src="../../public/images/robbie.webp" alt="Robbie Jameson" id="round" />
           </div>
           <div class="back">
             <p>
@@ -297,14 +297,13 @@
         <div class="flipper">
           <div class="front">
             <h4>AJ Carrick</h4>
-            <img src="../../public/images/aj-portrait.png" alt="AJ Carrick" id="round" />
+            <img src="../../public/images/aj-portrait.webp" alt="AJ Carrick" id="round" />
           </div>
           <div class="back">
             <p>
-              AJ is a talented photographer with a keen eye for detail and a passion for creating captivating visuals. With 18 years of experience in tourism, AJ has captured breathtaking
-              landscapes worldwide. Throughout AJ's journey, from iconic landmarks to remote destinations, AJ has mastered the art of visual storytelling. AJ specializes in crafting compelling visual
-              identities that resonate deeply with their target audience. Whether you're shaping a distinctive brand image or refining your visual storytelling, AJ's expertise ensures your vision
-              stands out.
+              AJ is a talented photographer with a keen eye for detail and a passion for creating captivating visuals. With 18 years of experience in tourism, AJ has captured breathtaking landscapes
+              worldwide. Throughout AJ's journey, from iconic landmarks to remote destinations, AJ has mastered the art of visual storytelling. AJ specializes in crafting compelling visual identities
+              that resonate deeply with their target audience. Whether you're shaping a distinctive brand image or refining your visual storytelling, AJ's expertise ensures your vision stands out.
             </p>
           </div>
         </div>
@@ -312,7 +311,7 @@
     </section>
   </section>
 
-  <section class="hero4">
+  <section class="hero4 lazyload">
     <div></div>
   </section>
 
@@ -329,6 +328,7 @@ import AddUser from "@/components/AddUser.vue";
 export default {
   data() {
     return {
+      activeSection: "",
       sectionsArray: [
         { id: "section-1", title: "Landing" },
         { id: "section-2", title: "Hero" },
@@ -345,60 +345,46 @@ export default {
     ScrollItem,
     AddUser,
   },
-  
 };
 </script>
 
 <style>
-.hero1 {
+.hero0,
+.hero1,
+.hero2,
+.hero3,
+.hero4 {
   display: flex;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   background-attachment: fixed;
   perspective: 1px;
   transform-style: preserve-3d;
   scroll-behavior: smooth;
-  z-index: 0;
-  background-image: url("../../public/images/nms-bg7.jpg");
+}
+.hero0 {
+  background-image: url("../../public/images/nms-bg3.webp");
+}
+.hero1 {
+  background-image: url("../../public/images/nms-bg7.webp");
 }
 .hero2 {
-  display: flex;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
-  height: 100vh;
-  background-attachment: fixed;
-  perspective: 1px;
-  transform-style: preserve-3d;
-  scroll-behavior: smooth;
-  z-index: 0;
-  background-image: url("../../public/images/nms-bg6.jpg");
+  background-image: url("../../public/images/nms-bg6.webp");
 }
 .hero3 {
-  display: flex;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
-  height: 100vh;
-  background-attachment: fixed;
-  perspective: 1px;
-  transform-style: preserve-3d;
-  scroll-behavior: smooth;
-  z-index: 0;
-  background-image: url("../../public/images/nms-bg2.jpg");
+  background-image: url("../../public/images/nms-bg2.webp");
+}
+.hero4 {
+  background-image: url("../../public/images/nms-bg4.webp");
 }
 
 .subtitle {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   color: var(--text-colour);
   font-size: 2rem;
   font-weight: 700;
-  /* text-transform: uppercase; */
   z-index: 1000;
   p {
     margin: 1rem;
@@ -411,43 +397,31 @@ export default {
   height: 10rem;
 }
 
-svg {
-  width: 30rem;
-  height: 30rem;
+#softbtn {
+  height: 4rem;
+  width: 9rem;
+  padding: 1rem 7rem 1rem 0.5rem;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  background-color: var(--primary-colour);
+}
+
+.svg {
+  width: 20rem;
+  height: 20rem;
   border-radius: 5px;
   object-fit: cover;
   object-position: center;
-}
-
-.hero0 {
-  display: flex;
-  height: 100vh;
-  background-image: url("../../public/images/nms-bg3.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  perspective: 1px;
-  transform-style: preserve-3d;
-  z-index: 0;
-  scroll-behavior: smooth;
-}
-
-.landing {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  transform: translateZ(-1px) scale(2);
-  z-index: 1000;
+  svg {
+    width: 20rem;
+    height: 20rem;
+  }
 }
 
 .row-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   padding: 6rem;
   flex-wrap: wrap;
@@ -461,13 +435,6 @@ svg {
   padding: 6rem;
 }
 
-img {
-  width: 15rem;
-  height: 15rem;
-  border-radius: 5px;
-  object-fit: cover;
-  object-position: center;
-}
 .flip-container {
   width: 25rem;
   height: 25rem;
@@ -481,9 +448,6 @@ img {
   animation: fade-in 3000ms cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
   animation-timeline: view(1000px 50px);
   animation-range: cover;
-  svg {
-    margin: auto;
-  }
 }
 
 #section-3 {
@@ -553,16 +517,62 @@ img {
   align-items: center;
   transform: rotateY(180deg);
 }
-.hero4 {
-  background-image: url("../../public/images/nms-bg4.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  background-attachment: fixed;
-  perspective: 1px;
-  transform-style: preserve-3d;
-  z-index: 0;
-  scroll-behavior: smooth;
+
+@media only screen and (orientation: portrait) {
+  .hero0,
+  .hero1,
+  .hero2,
+  .hero3,
+  .hero4 {
+    display: flex;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    scroll-behavior: smooth;
+  }
+ 
+  .svg {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .subtitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .row-container,
+  .column-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 100%;
+  }
+
+  .flip-container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  .flipper {
+    width: 70%;
+    height: 70%;
+  }
+  #round {
+    width: 15rem;
+    height: 15rem;
+  }
+  .back {
+    margin: 1rem 0;
+  }
 }
 </style>

@@ -6,23 +6,53 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+    meta: {
+      title: "NMS - Moving With You"
+    }
   },
-  // {
-  //   path: "/contact",
-  //   name: "contact",
-  //   component: () => import("@/views/HireUsView.vue"),
-  // },
-  // {
-  //   path: "/hireUs",
-  //   name: "hireUs",
-  //   component: () => import("@/views/HireUsView.vue"),
-  // },
+  {
+    path: "/content-creation",
+    name: "contentCreation",
+    component: () => import("@/views/ContentCreation.vue"),
+    meta: {
+      title: "Capture, Create, Connect"
+    }
+  },
+  {
+    path: "/graphic-design",
+    name: "graphicDesign",
+    component: () => import("@/views/GraphicDesign.vue"),
+    meta: {
+      title: "Designs to Captivate"
+    }
+  },
+  {
+    path: "/task-automation",
+    name: "taskAutomation",
+    component: () => import("@/views/TaskAutomation.vue"),
+    meta: {
+      title: "Efficiency with Automation"
+    }
+  },
+  {
+    path: "/web-design",
+    name: "webDesign",
+    component: () => import("@/views/WebDesign.vue"),
+    meta: {
+      title: "Websites that Impress"
+    }
+  },
   {
     path: "/portfolio",
     name: "portfolio",
-    component: () => import("@/views/ShopView.vue"),
+    component: () => import("@/views/PortfolioView.vue"),
+    meta: {
+      title: "Our Handy Work"
+    }
   },
 ];
+
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -40,6 +70,11 @@ const router = createRouter({
       return { x: 0, y: 0 };
     }
   },
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || "Moving With You";
+  next();
 });
 
 export default router;

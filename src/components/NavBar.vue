@@ -2,6 +2,7 @@
   <div class="site-nav" @click="handleNavClick">
     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
     <svg
+      class="logo"
       width="100%"
       height="100%"
       viewBox="0 0 500 500"
@@ -70,10 +71,9 @@ export default {
   justify-content: space-between;
   z-index: 100;
 
-  svg {
+  .logo {
     fill: var(--text-colour);
     width: 10rem;
-    
   }
 }
 
